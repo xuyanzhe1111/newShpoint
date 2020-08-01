@@ -2,9 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <script th:src="@{js/vue.js}"></script>
+    <script th:src="@{js/element.js}"></script>
+    <link rel="stylesheet" th:href="@{css/element.css}">
+    <script th:src="@{t}"></script>
+    <script>
+        var tempdata={};
+        var tempcomputed={};
+        for(var a in data){
+            tempdata[a]="";
+            tempcomputed[a]=data[a].calculation;
+        }
+    </script>
     <title>Title</title>
 </head>
 <body>
-dasdas
+<div id="app">
+    <template v-for="(item, index) in data">
+        <div>{{data[index]}}</div>
+    </template>
+    <el-input v-model="a"></el-input>
+    <el-input v-model="b"></el-input>
+    <el-input v-model="c"></el-input>
+
+</div>
+<script>
+    var vueApp=new Vue({
+        el:"#app",
+        data:{
+            data:tempdata
+        },
+        computed:tempcomputed,
+    })
+</script>
 </body>
 </html>
