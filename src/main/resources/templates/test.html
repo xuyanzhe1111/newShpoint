@@ -11,7 +11,17 @@
         var tempcomputed={};
         for(var a in data){
             tempdata[a]="";
-            tempcomputed[a]=data[a].calculation;
+            if(!a){
+                continue;
+            }
+            data[a].calculation && (tempcomputed[a]=function(){
+               return function(){
+                   var i=a;
+                    with(this.data){
+                        data[i].calculation();
+                    }
+               }
+            }());
         }
     </script>
     <title>Title</title>
