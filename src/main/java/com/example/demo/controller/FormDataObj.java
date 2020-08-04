@@ -10,7 +10,14 @@ class FormDataObj{
     String calculation;
     String type;
     public String toString(){
-        return "{name:'"+name+"',calculation:function(){ data."+name+"="+calculation+"},type:'"+type+"'},";
+        String name=this.name;
+        String calculation="";
+        if(this.calculation!=null&&!this.calculation.isEmpty())
+            calculation="function(){ with(this.data){"+name+"="+this.calculation+"}}";
+        else
+            calculation=null;
+        String type=this.type;
+        return "{name:'"+name+"',calculation:"+calculation+",type:'"+type+"'},";
     }
     public FormDataObj(String name, String calculation, String type) {
         this.name = name;

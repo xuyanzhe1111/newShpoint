@@ -14,14 +14,7 @@
             if(!a){
                 continue;
             }
-            data[a].calculation && (tempcomputed[a]=function(){
-               return function(){
-                   var i=a;
-                    with(this.data){
-                        data[i].calculation();
-                    }
-               }
-            }());
+            data[a].calculation && (tempcomputed[a]=data[a].calculation);
         }
     </script>
     <title>Title</title>
@@ -30,10 +23,10 @@
 <div id="app">
     <template v-for="(item, index) in data">
         <div>{{data[index]}}</div>
+        <el-input v-model="data[index]"></el-input>
     </template>
-    <el-input v-model="a"></el-input>
-    <el-input v-model="b"></el-input>
-    <el-input v-model="c"></el-input>
+    <el-input v-model="a" type="hidden"></el-input>
+    <el-input v-model="b" type="hidden"></el-input>
 
 </div>
 <script>
