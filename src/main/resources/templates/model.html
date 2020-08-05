@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div th:fragment="header">
+    <el-col :span="16">
+        <el-row>
+            <el-col :span="10">
+                <div style="width: 1px;height: 1px"></div>
+            </el-col>
+            <el-col :span="10">
+                <h1>{{header.headerTitle}}</h1>
+            </el-col>
+
+        </el-row>
+    </el-col>
+    <el-col :span="8" style="text-align: center">
+        <el-row>
+            <el-col :span="14">
+                <span style="text-align:right;width:100%;display:inline-block;overflow: auto">123</span>
+            </el-col>
+            <el-col :span="5">
+                <a href="/usermanager">
+                    <el-button type="info" plain round>用户管理</el-button>
+                </a>
+            </el-col>
+            <el-col :span="5">
+                <a href="/logout">
+                    <el-button type="info" plain round>用户退出</el-button>
+                </a>
+            </el-col>
+        </el-row>
+    </el-col>
+</div>
+
+
+<div th:fragment="aside">
+    <el-menu
+            class="el-menu-demo"
+            background-color='#545c64'
+            text-color="#fff"
+            active-text-color="#ffd04b">
+        <template v-for="e in aside">
+            <el-submenu :index="e.title" v-if="e.children">
+                <template slot="title">{{e.title}}</template>
+                <template v-for="index in e.children">
+                    <el-submenu :index="index.title" v-if="index.children">
+                        <template slot="title" type="primary">{{index.title}}</template>
+                        <template v-for="subindex in index.children">
+                            <el-menu-item :index="subindex.title">
+                                <el-link type="primary" :href="'/'+index.url+(subindex.url?'/'+subindex.url:'')"
+                                         style="display: block">
+                                    {{subindex.title}}
+                                </el-link>
+                            </el-menu-item>
+                        </template>
+                    </el-submenu>
+                    <el-menu-item v-else>
+                        <span slot="title" :index="index.title">
+                            <el-link type="primary" :href="'/'+e.url+(index.url?'/'+index.url:'')"
+                                     style="display: block">{{index.title}}</el-link>
+                        </span>
+                    </el-menu-item>
+                </template>
+            </el-submenu>
+            <el-menu-item v-else-if="e.url">
+                    <span slot="title" :index="e.title">
+                            <el-link type="primary" :href="e.url?'/'+e.url:''"
+                                     style="display: block">{{e.title}}</el-link>
+                    </span>
+            </el-menu-item>
+            <el-menu-item v-else>
+                <span slot="title" :index="e.title">{{e.title}}</span>
+            </el-menu-item>
+        </template>
+    </el-menu>
+</div>
+
+
+</body>

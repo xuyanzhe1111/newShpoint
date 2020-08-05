@@ -1,5 +1,10 @@
-asideDatas = {
-    asideData: [
+if(!window.data)
+    window.data={
+        aside:{},
+        header:{}
+    };
+
+window.data["aside"] = [
         {
             title: '整机计算书',
             url: "pdf",
@@ -289,16 +294,7 @@ asideDatas = {
             title:'模块编辑',
             url:'dataTable',
         }
-    ]
-};
-asideMethods = {
-    openHandle: function () {
-        console.log('open');
-    },
-    closeHandle: function () {
-        console.log('close');
-    }
-};
-headerData = {
+    ];
+data.header = {
     headerTitle: 'this is home'
 };

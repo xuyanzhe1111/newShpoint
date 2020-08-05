@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>PointHome</title>
+    <script type="text/javascript" th:src="@{js/vue.js}"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" th:href="@{css/element.css}">
+    <!-- 引入组件库 -->
+    <script type="text/javascript" th:src="@{js/head/home.js}"></script>
+    <script type="text/javascript" th:src="@{js/element.js}"></script>
+    <script th:src="@{js/axios.js}"></script>
+
+    <script>
+        var vm = new Vue({
+            data:data
+        })
+    </script>
+    <style>
+        body, h1 {
+            margin: 0;
+            border: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield !important;
+        }
+
+        input, input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+        }
+
+        #app {
+            min-width: 1500px;
+        }
+
+        h1 {
+            margin: 0 auto 0;
+            text-align: center;
+            width: 100%
+        }
+
+        input {
+            height: 30px !important;
+            font-size: 17px !important;
+        }
+
+        .el-header {
+            background-color: #B3C0D1;
+            color: #333;
+            line-height: 60px;
+        }
+
+        .el-aside {
+            background-color: #D3DCE6;
+            color: #333;
+            line-height: 200px;
+        }
+
+        .el-main {
+            color: #333;
+            overflow: auto;
+        }
+
+        body {
+            background-color: #f0f9eb;
+        }
+
+        .side, .el-aside {
+            background-color: #545c64 !important;
+            width: 250px !important;
+            height: 100%;
+        }
+
+        .side {
+            margin-right: 1px;
+            overflow: auto;
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .cell {
+            padding: 3px !important;
+        }
+
+        .el-main {
+            padding: 10px;
+        }
+
+        .titltForForm .el-alert {
+            padding: 15px 0;
+        }
+
+        aside, .el-main {
+            padding-top: 60px;
+        }
+
+        h4 {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        td,
+        th {
+            padding: 4px 3px !important;
+        }
+    </style>
+    <style>
+        .marginTop20 {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .el-button + .el-button {
+            margin-left: 0px;
+        }
+
+        .el-card__body {
+            padding: 5px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .el-alert__title {
+            font-size: 30px !important;
+            line-height: 30px !important;
+        }
+
+        .el-drawer__body {
+            overflow: auto;
+            /* overflow-x: auto; */
+        }
+
+        .hidden {
+            display: none;
+        }
+        form .el-input__inner{
+            background-color: transparent;
+        }
+        .el-upload{
+            width: 98%;
+        }
+
+    </style>
+    <style type="text/css">
+        .el-table–border th.gutter:last-of-type {
+            display: block !important;
+            width: 17px !important;
+        }
+
+        .el-autocomplete {
+            width: 100% !important;
+        }
+
+        .el-card {
+            margin: 3px;
+        }
+        .avatar-uploader .el-upload {
+            border: 1px dashed #d9d9d9;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .avatar-uploader .el-upload:hover {
+            border-color: #409EFF;
+        }
+        .avatar-uploader-icon {
+            font-size: 28px;
+            color: #8c939d;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            display: block;
+        }
+    </style>
+    <style>
+        .el-pager li, .el-pagination button:disabled, .el-pagination .btn-next {
+            background-color: transparent;
+        }
+
+        .el-select .el-input .el-input__inner,
+        .el-pagination--small .el-input .el-input__inner {
+            font-size: 13px !important;;
+        }
+
+        .el-pagination--small .el-input .el-input__inne {
+            height: 22px !important;
+        }
+
+        li .el-link--inner{
+            width: 100%;
+        }
+        .demo-table-expand {
+            font-size: 0;
+        }
+        .demo-table-expand label {
+            width: 90px;
+            color: #99a9bf;
+        }
+        .demo-table-expand .el-form-item {
+            margin-right: 0;
+            margin-bottom: 0;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <el-container>
+        <el-header id="headerBox" style="width:100%;position: fixed;z-index: 10">
+            <!--头元素-->
+            <el-row :gutter="20">
+                <slot th:insert="model::header"></slot>
+            </el-row>
+        </el-header>
+        <el-container>
+            <el-aside id="aside" height='100%' style="z-index: 5">
+                <el-row class="tac">
+                    <el-col>
+                        <div class="side fixed" id="asideBox">
+                            <!--左侧导航栏-->
+                            <div th:include="model::aside"></div>
+                        </div>
+                    </el-col>
+                </el-row>
+            </el-aside>
+            <el-main>
+            </el-main>
+        </el-container>
+    </el-container>
+</div>
+<script>
+    vm.$mount('#app')
+</script>
+</body>
+</html>
