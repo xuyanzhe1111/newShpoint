@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.ProjectDataMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.ProjectData" >
+    <id column="ProjectDataId" property="projectdataid" jdbcType="INTEGER" />
+    <result column="ProjectName" property="projectname" jdbcType="VARCHAR" />
+    <result column="DataColumn1" property="datacolumn1" jdbcType="VARCHAR" />
+    <result column="DataColumn2" property="datacolumn2" jdbcType="VARCHAR" />
+    <result column="DataColumn3" property="datacolumn3" jdbcType="VARCHAR" />
+    <result column="DataColumn4" property="datacolumn4" jdbcType="VARCHAR" />
+    <result column="DataColumn5" property="datacolumn5" jdbcType="VARCHAR" />
+    <result column="DataColumn6" property="datacolumn6" jdbcType="VARCHAR" />
+    <result column="DataColumn7" property="datacolumn7" jdbcType="VARCHAR" />
+    <result column="DataColumn8" property="datacolumn8" jdbcType="VARCHAR" />
+    <result column="DataColumn9" property="datacolumn9" jdbcType="VARCHAR" />
+    <result column="DataColumn10" property="datacolumn10" jdbcType="VARCHAR" />
+    <result column="DataColumn11" property="datacolumn11" jdbcType="VARCHAR" />
+    <result column="DataColumn12" property="datacolumn12" jdbcType="VARCHAR" />
+    <result column="DataColumn13" property="datacolumn13" jdbcType="VARCHAR" />
+    <result column="DataColumn14" property="datacolumn14" jdbcType="VARCHAR" />
+    <result column="DataColumn15" property="datacolumn15" jdbcType="VARCHAR" />
+    <result column="DataColumn16" property="datacolumn16" jdbcType="VARCHAR" />
+    <result column="DataColumn17" property="datacolumn17" jdbcType="VARCHAR" />
+    <result column="DataColumn18" property="datacolumn18" jdbcType="VARCHAR" />
+    <result column="DataColumn19" property="datacolumn19" jdbcType="VARCHAR" />
+    <result column="DataColumn20" property="datacolumn20" jdbcType="VARCHAR" />
+    <result column="DataColumn21" property="datacolumn21" jdbcType="VARCHAR" />
+    <result column="DataColumn22" property="datacolumn22" jdbcType="VARCHAR" />
+    <result column="DataColumn23" property="datacolumn23" jdbcType="VARCHAR" />
+    <result column="DataColumn24" property="datacolumn24" jdbcType="VARCHAR" />
+    <result column="DataColumn25" property="datacolumn25" jdbcType="VARCHAR" />
+    <result column="DataColumn26" property="datacolumn26" jdbcType="VARCHAR" />
+    <result column="DataColumn27" property="datacolumn27" jdbcType="VARCHAR" />
+    <result column="DataColumn28" property="datacolumn28" jdbcType="VARCHAR" />
+    <result column="DataColumn29" property="datacolumn29" jdbcType="VARCHAR" />
+    <result column="DataColumn30" property="datacolumn30" jdbcType="VARCHAR" />
+    <result column="DataColumn31" property="datacolumn31" jdbcType="VARCHAR" />
+    <result column="DataColumn32" property="datacolumn32" jdbcType="VARCHAR" />
+    <result column="DataColumn33" property="datacolumn33" jdbcType="VARCHAR" />
+    <result column="DataColumn34" property="datacolumn34" jdbcType="VARCHAR" />
+    <result column="DataColumn35" property="datacolumn35" jdbcType="VARCHAR" />
+    <result column="DataColumn36" property="datacolumn36" jdbcType="VARCHAR" />
+    <result column="DataColumn37" property="datacolumn37" jdbcType="VARCHAR" />
+    <result column="DataColumn38" property="datacolumn38" jdbcType="VARCHAR" />
+    <result column="DataColumn39" property="datacolumn39" jdbcType="VARCHAR" />
+    <result column="DataColumn40" property="datacolumn40" jdbcType="VARCHAR" />
+    <result column="DataColumn41" property="datacolumn41" jdbcType="VARCHAR" />
+    <result column="DataColumn42" property="datacolumn42" jdbcType="VARCHAR" />
+    <result column="DataColumn43" property="datacolumn43" jdbcType="VARCHAR" />
+    <result column="DataColumn44" property="datacolumn44" jdbcType="VARCHAR" />
+    <result column="DataColumn45" property="datacolumn45" jdbcType="VARCHAR" />
+    <result column="DataColumn46" property="datacolumn46" jdbcType="VARCHAR" />
+    <result column="DataColumn47" property="datacolumn47" jdbcType="VARCHAR" />
+    <result column="DataColumn48" property="datacolumn48" jdbcType="VARCHAR" />
+    <result column="DataColumn49" property="datacolumn49" jdbcType="VARCHAR" />
+    <result column="DataColumn50" property="datacolumn50" jdbcType="VARCHAR" />
+    <result column="DataColumn51" property="datacolumn51" jdbcType="VARCHAR" />
+    <result column="DataColumn52" property="datacolumn52" jdbcType="VARCHAR" />
+    <result column="DataColumn53" property="datacolumn53" jdbcType="VARCHAR" />
+    <result column="DataColumn54" property="datacolumn54" jdbcType="VARCHAR" />
+    <result column="DataColumn55" property="datacolumn55" jdbcType="VARCHAR" />
+    <result column="DataColumn56" property="datacolumn56" jdbcType="VARCHAR" />
+    <result column="DataColumn57" property="datacolumn57" jdbcType="VARCHAR" />
+    <result column="DataColumn58" property="datacolumn58" jdbcType="VARCHAR" />
+    <result column="DataColumn59" property="datacolumn59" jdbcType="VARCHAR" />
+    <result column="DataColumn60" property="datacolumn60" jdbcType="VARCHAR" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="ChangeLastTime" property="changelasttime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ProjectDataId, ProjectName, DataColumn1, DataColumn2, DataColumn3, DataColumn4, DataColumn5, 
+    DataColumn6, DataColumn7, DataColumn8, DataColumn9, DataColumn10, DataColumn11, DataColumn12, 
+    DataColumn13, DataColumn14, DataColumn15, DataColumn16, DataColumn17, DataColumn18, 
+    DataColumn19, DataColumn20, DataColumn21, DataColumn22, DataColumn23, DataColumn24, 
+    DataColumn25, DataColumn26, DataColumn27, DataColumn28, DataColumn29, DataColumn30, 
+    DataColumn31, DataColumn32, DataColumn33, DataColumn34, DataColumn35, DataColumn36, 
+    DataColumn37, DataColumn38, DataColumn39, DataColumn40, DataColumn41, DataColumn42, 
+    DataColumn43, DataColumn44, DataColumn45, DataColumn46, DataColumn47, DataColumn48, 
+    DataColumn49, DataColumn50, DataColumn51, DataColumn52, DataColumn53, DataColumn54, 
+    DataColumn55, DataColumn56, DataColumn57, DataColumn58, DataColumn59, DataColumn60, 
+    CreateTime, ChangeLastTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.ProjectDataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from project_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from project_data
+    where ProjectDataId = #{projectdataid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from project_data
+    where ProjectDataId = #{projectdataid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.ProjectDataExample" >
+    delete from project_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.ProjectData" >
+    insert into project_data (ProjectDataId, ProjectName, DataColumn1, 
+      DataColumn2, DataColumn3, DataColumn4, 
+      DataColumn5, DataColumn6, DataColumn7, 
+      DataColumn8, DataColumn9, DataColumn10, 
+      DataColumn11, DataColumn12, DataColumn13, 
+      DataColumn14, DataColumn15, DataColumn16, 
+      DataColumn17, DataColumn18, DataColumn19, 
+      DataColumn20, DataColumn21, DataColumn22, 
+      DataColumn23, DataColumn24, DataColumn25, 
+      DataColumn26, DataColumn27, DataColumn28, 
+      DataColumn29, DataColumn30, DataColumn31, 
+      DataColumn32, DataColumn33, DataColumn34, 
+      DataColumn35, DataColumn36, DataColumn37, 
+      DataColumn38, DataColumn39, DataColumn40, 
+      DataColumn41, DataColumn42, DataColumn43, 
+      DataColumn44, DataColumn45, DataColumn46, 
+      DataColumn47, DataColumn48, DataColumn49, 
+      DataColumn50, DataColumn51, DataColumn52, 
+      DataColumn53, DataColumn54, DataColumn55, 
+      DataColumn56, DataColumn57, DataColumn58, 
+      DataColumn59, DataColumn60, CreateTime, 
+      ChangeLastTime)
+    values (#{projectdataid,jdbcType=INTEGER}, #{projectname,jdbcType=VARCHAR}, #{datacolumn1,jdbcType=VARCHAR}, 
+      #{datacolumn2,jdbcType=VARCHAR}, #{datacolumn3,jdbcType=VARCHAR}, #{datacolumn4,jdbcType=VARCHAR}, 
+      #{datacolumn5,jdbcType=VARCHAR}, #{datacolumn6,jdbcType=VARCHAR}, #{datacolumn7,jdbcType=VARCHAR}, 
+      #{datacolumn8,jdbcType=VARCHAR}, #{datacolumn9,jdbcType=VARCHAR}, #{datacolumn10,jdbcType=VARCHAR}, 
+      #{datacolumn11,jdbcType=VARCHAR}, #{datacolumn12,jdbcType=VARCHAR}, #{datacolumn13,jdbcType=VARCHAR}, 
+      #{datacolumn14,jdbcType=VARCHAR}, #{datacolumn15,jdbcType=VARCHAR}, #{datacolumn16,jdbcType=VARCHAR}, 
+      #{datacolumn17,jdbcType=VARCHAR}, #{datacolumn18,jdbcType=VARCHAR}, #{datacolumn19,jdbcType=VARCHAR}, 
+      #{datacolumn20,jdbcType=VARCHAR}, #{datacolumn21,jdbcType=VARCHAR}, #{datacolumn22,jdbcType=VARCHAR}, 
+      #{datacolumn23,jdbcType=VARCHAR}, #{datacolumn24,jdbcType=VARCHAR}, #{datacolumn25,jdbcType=VARCHAR}, 
+      #{datacolumn26,jdbcType=VARCHAR}, #{datacolumn27,jdbcType=VARCHAR}, #{datacolumn28,jdbcType=VARCHAR}, 
+      #{datacolumn29,jdbcType=VARCHAR}, #{datacolumn30,jdbcType=VARCHAR}, #{datacolumn31,jdbcType=VARCHAR}, 
+      #{datacolumn32,jdbcType=VARCHAR}, #{datacolumn33,jdbcType=VARCHAR}, #{datacolumn34,jdbcType=VARCHAR}, 
+      #{datacolumn35,jdbcType=VARCHAR}, #{datacolumn36,jdbcType=VARCHAR}, #{datacolumn37,jdbcType=VARCHAR}, 
+      #{datacolumn38,jdbcType=VARCHAR}, #{datacolumn39,jdbcType=VARCHAR}, #{datacolumn40,jdbcType=VARCHAR}, 
+      #{datacolumn41,jdbcType=VARCHAR}, #{datacolumn42,jdbcType=VARCHAR}, #{datacolumn43,jdbcType=VARCHAR}, 
+      #{datacolumn44,jdbcType=VARCHAR}, #{datacolumn45,jdbcType=VARCHAR}, #{datacolumn46,jdbcType=VARCHAR}, 
+      #{datacolumn47,jdbcType=VARCHAR}, #{datacolumn48,jdbcType=VARCHAR}, #{datacolumn49,jdbcType=VARCHAR}, 
+      #{datacolumn50,jdbcType=VARCHAR}, #{datacolumn51,jdbcType=VARCHAR}, #{datacolumn52,jdbcType=VARCHAR}, 
+      #{datacolumn53,jdbcType=VARCHAR}, #{datacolumn54,jdbcType=VARCHAR}, #{datacolumn55,jdbcType=VARCHAR}, 
+      #{datacolumn56,jdbcType=VARCHAR}, #{datacolumn57,jdbcType=VARCHAR}, #{datacolumn58,jdbcType=VARCHAR}, 
+      #{datacolumn59,jdbcType=VARCHAR}, #{datacolumn60,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{changelasttime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.ProjectData" >
+    insert into project_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectdataid != null" >
+        ProjectDataId,
+      </if>
+      <if test="projectname != null" >
+        ProjectName,
+      </if>
+      <if test="datacolumn1 != null" >
+        DataColumn1,
+      </if>
+      <if test="datacolumn2 != null" >
+        DataColumn2,
+      </if>
+      <if test="datacolumn3 != null" >
+        DataColumn3,
+      </if>
+      <if test="datacolumn4 != null" >
+        DataColumn4,
+      </if>
+      <if test="datacolumn5 != null" >
+        DataColumn5,
+      </if>
+      <if test="datacolumn6 != null" >
+        DataColumn6,
+      </if>
+      <if test="datacolumn7 != null" >
+        DataColumn7,
+      </if>
+      <if test="datacolumn8 != null" >
+        DataColumn8,
+      </if>
+      <if test="datacolumn9 != null" >
+        DataColumn9,
+      </if>
+      <if test="datacolumn10 != null" >
+        DataColumn10,
+      </if>
+      <if test="datacolumn11 != null" >
+        DataColumn11,
+      </if>
+      <if test="datacolumn12 != null" >
+        DataColumn12,
+      </if>
+      <if test="datacolumn13 != null" >
+        DataColumn13,
+      </if>
+      <if test="datacolumn14 != null" >
+        DataColumn14,
+      </if>
+      <if test="datacolumn15 != null" >
+        DataColumn15,
+      </if>
+      <if test="datacolumn16 != null" >
+        DataColumn16,
+      </if>
+      <if test="datacolumn17 != null" >
+        DataColumn17,
+      </if>
+      <if test="datacolumn18 != null" >
+        DataColumn18,
+      </if>
+      <if test="datacolumn19 != null" >
+        DataColumn19,
+      </if>
+      <if test="datacolumn20 != null" >
+        DataColumn20,
+      </if>
+      <if test="datacolumn21 != null" >
+        DataColumn21,
+      </if>
+      <if test="datacolumn22 != null" >
+        DataColumn22,
+      </if>
+      <if test="datacolumn23 != null" >
+        DataColumn23,
+      </if>
+      <if test="datacolumn24 != null" >
+        DataColumn24,
+      </if>
+      <if test="datacolumn25 != null" >
+        DataColumn25,
+      </if>
+      <if test="datacolumn26 != null" >
+        DataColumn26,
+      </if>
+      <if test="datacolumn27 != null" >
+        DataColumn27,
+      </if>
+      <if test="datacolumn28 != null" >
+        DataColumn28,
+      </if>
+      <if test="datacolumn29 != null" >
+        DataColumn29,
+      </if>
+      <if test="datacolumn30 != null" >
+        DataColumn30,
+      </if>
+      <if test="datacolumn31 != null" >
+        DataColumn31,
+      </if>
+      <if test="datacolumn32 != null" >
+        DataColumn32,
+      </if>
+      <if test="datacolumn33 != null" >
+        DataColumn33,
+      </if>
+      <if test="datacolumn34 != null" >
+        DataColumn34,
+      </if>
+      <if test="datacolumn35 != null" >
+        DataColumn35,
+      </if>
+      <if test="datacolumn36 != null" >
+        DataColumn36,
+      </if>
+      <if test="datacolumn37 != null" >
+        DataColumn37,
+      </if>
+      <if test="datacolumn38 != null" >
+        DataColumn38,
+      </if>
+      <if test="datacolumn39 != null" >
+        DataColumn39,
+      </if>
+      <if test="datacolumn40 != null" >
+        DataColumn40,
+      </if>
+      <if test="datacolumn41 != null" >
+        DataColumn41,
+      </if>
+      <if test="datacolumn42 != null" >
+        DataColumn42,
+      </if>
+      <if test="datacolumn43 != null" >
+        DataColumn43,
+      </if>
+      <if test="datacolumn44 != null" >
+        DataColumn44,
+      </if>
+      <if test="datacolumn45 != null" >
+        DataColumn45,
+      </if>
+      <if test="datacolumn46 != null" >
+        DataColumn46,
+      </if>
+      <if test="datacolumn47 != null" >
+        DataColumn47,
+      </if>
+      <if test="datacolumn48 != null" >
+        DataColumn48,
+      </if>
+      <if test="datacolumn49 != null" >
+        DataColumn49,
+      </if>
+      <if test="datacolumn50 != null" >
+        DataColumn50,
+      </if>
+      <if test="datacolumn51 != null" >
+        DataColumn51,
+      </if>
+      <if test="datacolumn52 != null" >
+        DataColumn52,
+      </if>
+      <if test="datacolumn53 != null" >
+        DataColumn53,
+      </if>
+      <if test="datacolumn54 != null" >
+        DataColumn54,
+      </if>
+      <if test="datacolumn55 != null" >
+        DataColumn55,
+      </if>
+      <if test="datacolumn56 != null" >
+        DataColumn56,
+      </if>
+      <if test="datacolumn57 != null" >
+        DataColumn57,
+      </if>
+      <if test="datacolumn58 != null" >
+        DataColumn58,
+      </if>
+      <if test="datacolumn59 != null" >
+        DataColumn59,
+      </if>
+      <if test="datacolumn60 != null" >
+        DataColumn60,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+      <if test="changelasttime != null" >
+        ChangeLastTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectdataid != null" >
+        #{projectdataid,jdbcType=INTEGER},
+      </if>
+      <if test="projectname != null" >
+        #{projectname,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn1 != null" >
+        #{datacolumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn2 != null" >
+        #{datacolumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn3 != null" >
+        #{datacolumn3,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn4 != null" >
+        #{datacolumn4,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn5 != null" >
+        #{datacolumn5,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn6 != null" >
+        #{datacolumn6,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn7 != null" >
+        #{datacolumn7,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn8 != null" >
+        #{datacolumn8,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn9 != null" >
+        #{datacolumn9,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn10 != null" >
+        #{datacolumn10,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn11 != null" >
+        #{datacolumn11,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn12 != null" >
+        #{datacolumn12,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn13 != null" >
+        #{datacolumn13,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn14 != null" >
+        #{datacolumn14,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn15 != null" >
+        #{datacolumn15,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn16 != null" >
+        #{datacolumn16,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn17 != null" >
+        #{datacolumn17,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn18 != null" >
+        #{datacolumn18,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn19 != null" >
+        #{datacolumn19,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn20 != null" >
+        #{datacolumn20,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn21 != null" >
+        #{datacolumn21,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn22 != null" >
+        #{datacolumn22,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn23 != null" >
+        #{datacolumn23,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn24 != null" >
+        #{datacolumn24,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn25 != null" >
+        #{datacolumn25,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn26 != null" >
+        #{datacolumn26,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn27 != null" >
+        #{datacolumn27,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn28 != null" >
+        #{datacolumn28,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn29 != null" >
+        #{datacolumn29,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn30 != null" >
+        #{datacolumn30,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn31 != null" >
+        #{datacolumn31,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn32 != null" >
+        #{datacolumn32,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn33 != null" >
+        #{datacolumn33,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn34 != null" >
+        #{datacolumn34,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn35 != null" >
+        #{datacolumn35,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn36 != null" >
+        #{datacolumn36,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn37 != null" >
+        #{datacolumn37,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn38 != null" >
+        #{datacolumn38,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn39 != null" >
+        #{datacolumn39,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn40 != null" >
+        #{datacolumn40,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn41 != null" >
+        #{datacolumn41,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn42 != null" >
+        #{datacolumn42,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn43 != null" >
+        #{datacolumn43,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn44 != null" >
+        #{datacolumn44,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn45 != null" >
+        #{datacolumn45,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn46 != null" >
+        #{datacolumn46,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn47 != null" >
+        #{datacolumn47,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn48 != null" >
+        #{datacolumn48,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn49 != null" >
+        #{datacolumn49,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn50 != null" >
+        #{datacolumn50,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn51 != null" >
+        #{datacolumn51,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn52 != null" >
+        #{datacolumn52,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn53 != null" >
+        #{datacolumn53,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn54 != null" >
+        #{datacolumn54,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn55 != null" >
+        #{datacolumn55,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn56 != null" >
+        #{datacolumn56,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn57 != null" >
+        #{datacolumn57,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn58 != null" >
+        #{datacolumn58,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn59 != null" >
+        #{datacolumn59,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn60 != null" >
+        #{datacolumn60,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changelasttime != null" >
+        #{changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.ProjectDataExample" resultType="java.lang.Integer" >
+    select count(*) from project_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update project_data
+    <set >
+      <if test="record.projectdataid != null" >
+        ProjectDataId = #{record.projectdataid,jdbcType=INTEGER},
+      </if>
+      <if test="record.projectname != null" >
+        ProjectName = #{record.projectname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn1 != null" >
+        DataColumn1 = #{record.datacolumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn2 != null" >
+        DataColumn2 = #{record.datacolumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn3 != null" >
+        DataColumn3 = #{record.datacolumn3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn4 != null" >
+        DataColumn4 = #{record.datacolumn4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn5 != null" >
+        DataColumn5 = #{record.datacolumn5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn6 != null" >
+        DataColumn6 = #{record.datacolumn6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn7 != null" >
+        DataColumn7 = #{record.datacolumn7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn8 != null" >
+        DataColumn8 = #{record.datacolumn8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn9 != null" >
+        DataColumn9 = #{record.datacolumn9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn10 != null" >
+        DataColumn10 = #{record.datacolumn10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn11 != null" >
+        DataColumn11 = #{record.datacolumn11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn12 != null" >
+        DataColumn12 = #{record.datacolumn12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn13 != null" >
+        DataColumn13 = #{record.datacolumn13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn14 != null" >
+        DataColumn14 = #{record.datacolumn14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn15 != null" >
+        DataColumn15 = #{record.datacolumn15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn16 != null" >
+        DataColumn16 = #{record.datacolumn16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn17 != null" >
+        DataColumn17 = #{record.datacolumn17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn18 != null" >
+        DataColumn18 = #{record.datacolumn18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn19 != null" >
+        DataColumn19 = #{record.datacolumn19,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn20 != null" >
+        DataColumn20 = #{record.datacolumn20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn21 != null" >
+        DataColumn21 = #{record.datacolumn21,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn22 != null" >
+        DataColumn22 = #{record.datacolumn22,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn23 != null" >
+        DataColumn23 = #{record.datacolumn23,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn24 != null" >
+        DataColumn24 = #{record.datacolumn24,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn25 != null" >
+        DataColumn25 = #{record.datacolumn25,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn26 != null" >
+        DataColumn26 = #{record.datacolumn26,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn27 != null" >
+        DataColumn27 = #{record.datacolumn27,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn28 != null" >
+        DataColumn28 = #{record.datacolumn28,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn29 != null" >
+        DataColumn29 = #{record.datacolumn29,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn30 != null" >
+        DataColumn30 = #{record.datacolumn30,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn31 != null" >
+        DataColumn31 = #{record.datacolumn31,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn32 != null" >
+        DataColumn32 = #{record.datacolumn32,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn33 != null" >
+        DataColumn33 = #{record.datacolumn33,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn34 != null" >
+        DataColumn34 = #{record.datacolumn34,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn35 != null" >
+        DataColumn35 = #{record.datacolumn35,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn36 != null" >
+        DataColumn36 = #{record.datacolumn36,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn37 != null" >
+        DataColumn37 = #{record.datacolumn37,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn38 != null" >
+        DataColumn38 = #{record.datacolumn38,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn39 != null" >
+        DataColumn39 = #{record.datacolumn39,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn40 != null" >
+        DataColumn40 = #{record.datacolumn40,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn41 != null" >
+        DataColumn41 = #{record.datacolumn41,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn42 != null" >
+        DataColumn42 = #{record.datacolumn42,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn43 != null" >
+        DataColumn43 = #{record.datacolumn43,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn44 != null" >
+        DataColumn44 = #{record.datacolumn44,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn45 != null" >
+        DataColumn45 = #{record.datacolumn45,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn46 != null" >
+        DataColumn46 = #{record.datacolumn46,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn47 != null" >
+        DataColumn47 = #{record.datacolumn47,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn48 != null" >
+        DataColumn48 = #{record.datacolumn48,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn49 != null" >
+        DataColumn49 = #{record.datacolumn49,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn50 != null" >
+        DataColumn50 = #{record.datacolumn50,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn51 != null" >
+        DataColumn51 = #{record.datacolumn51,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn52 != null" >
+        DataColumn52 = #{record.datacolumn52,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn53 != null" >
+        DataColumn53 = #{record.datacolumn53,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn54 != null" >
+        DataColumn54 = #{record.datacolumn54,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn55 != null" >
+        DataColumn55 = #{record.datacolumn55,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn56 != null" >
+        DataColumn56 = #{record.datacolumn56,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn57 != null" >
+        DataColumn57 = #{record.datacolumn57,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn58 != null" >
+        DataColumn58 = #{record.datacolumn58,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn59 != null" >
+        DataColumn59 = #{record.datacolumn59,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacolumn60 != null" >
+        DataColumn60 = #{record.datacolumn60,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.changelasttime != null" >
+        ChangeLastTime = #{record.changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update project_data
+    set ProjectDataId = #{record.projectdataid,jdbcType=INTEGER},
+      ProjectName = #{record.projectname,jdbcType=VARCHAR},
+      DataColumn1 = #{record.datacolumn1,jdbcType=VARCHAR},
+      DataColumn2 = #{record.datacolumn2,jdbcType=VARCHAR},
+      DataColumn3 = #{record.datacolumn3,jdbcType=VARCHAR},
+      DataColumn4 = #{record.datacolumn4,jdbcType=VARCHAR},
+      DataColumn5 = #{record.datacolumn5,jdbcType=VARCHAR},
+      DataColumn6 = #{record.datacolumn6,jdbcType=VARCHAR},
+      DataColumn7 = #{record.datacolumn7,jdbcType=VARCHAR},
+      DataColumn8 = #{record.datacolumn8,jdbcType=VARCHAR},
+      DataColumn9 = #{record.datacolumn9,jdbcType=VARCHAR},
+      DataColumn10 = #{record.datacolumn10,jdbcType=VARCHAR},
+      DataColumn11 = #{record.datacolumn11,jdbcType=VARCHAR},
+      DataColumn12 = #{record.datacolumn12,jdbcType=VARCHAR},
+      DataColumn13 = #{record.datacolumn13,jdbcType=VARCHAR},
+      DataColumn14 = #{record.datacolumn14,jdbcType=VARCHAR},
+      DataColumn15 = #{record.datacolumn15,jdbcType=VARCHAR},
+      DataColumn16 = #{record.datacolumn16,jdbcType=VARCHAR},
+      DataColumn17 = #{record.datacolumn17,jdbcType=VARCHAR},
+      DataColumn18 = #{record.datacolumn18,jdbcType=VARCHAR},
+      DataColumn19 = #{record.datacolumn19,jdbcType=VARCHAR},
+      DataColumn20 = #{record.datacolumn20,jdbcType=VARCHAR},
+      DataColumn21 = #{record.datacolumn21,jdbcType=VARCHAR},
+      DataColumn22 = #{record.datacolumn22,jdbcType=VARCHAR},
+      DataColumn23 = #{record.datacolumn23,jdbcType=VARCHAR},
+      DataColumn24 = #{record.datacolumn24,jdbcType=VARCHAR},
+      DataColumn25 = #{record.datacolumn25,jdbcType=VARCHAR},
+      DataColumn26 = #{record.datacolumn26,jdbcType=VARCHAR},
+      DataColumn27 = #{record.datacolumn27,jdbcType=VARCHAR},
+      DataColumn28 = #{record.datacolumn28,jdbcType=VARCHAR},
+      DataColumn29 = #{record.datacolumn29,jdbcType=VARCHAR},
+      DataColumn30 = #{record.datacolumn30,jdbcType=VARCHAR},
+      DataColumn31 = #{record.datacolumn31,jdbcType=VARCHAR},
+      DataColumn32 = #{record.datacolumn32,jdbcType=VARCHAR},
+      DataColumn33 = #{record.datacolumn33,jdbcType=VARCHAR},
+      DataColumn34 = #{record.datacolumn34,jdbcType=VARCHAR},
+      DataColumn35 = #{record.datacolumn35,jdbcType=VARCHAR},
+      DataColumn36 = #{record.datacolumn36,jdbcType=VARCHAR},
+      DataColumn37 = #{record.datacolumn37,jdbcType=VARCHAR},
+      DataColumn38 = #{record.datacolumn38,jdbcType=VARCHAR},
+      DataColumn39 = #{record.datacolumn39,jdbcType=VARCHAR},
+      DataColumn40 = #{record.datacolumn40,jdbcType=VARCHAR},
+      DataColumn41 = #{record.datacolumn41,jdbcType=VARCHAR},
+      DataColumn42 = #{record.datacolumn42,jdbcType=VARCHAR},
+      DataColumn43 = #{record.datacolumn43,jdbcType=VARCHAR},
+      DataColumn44 = #{record.datacolumn44,jdbcType=VARCHAR},
+      DataColumn45 = #{record.datacolumn45,jdbcType=VARCHAR},
+      DataColumn46 = #{record.datacolumn46,jdbcType=VARCHAR},
+      DataColumn47 = #{record.datacolumn47,jdbcType=VARCHAR},
+      DataColumn48 = #{record.datacolumn48,jdbcType=VARCHAR},
+      DataColumn49 = #{record.datacolumn49,jdbcType=VARCHAR},
+      DataColumn50 = #{record.datacolumn50,jdbcType=VARCHAR},
+      DataColumn51 = #{record.datacolumn51,jdbcType=VARCHAR},
+      DataColumn52 = #{record.datacolumn52,jdbcType=VARCHAR},
+      DataColumn53 = #{record.datacolumn53,jdbcType=VARCHAR},
+      DataColumn54 = #{record.datacolumn54,jdbcType=VARCHAR},
+      DataColumn55 = #{record.datacolumn55,jdbcType=VARCHAR},
+      DataColumn56 = #{record.datacolumn56,jdbcType=VARCHAR},
+      DataColumn57 = #{record.datacolumn57,jdbcType=VARCHAR},
+      DataColumn58 = #{record.datacolumn58,jdbcType=VARCHAR},
+      DataColumn59 = #{record.datacolumn59,jdbcType=VARCHAR},
+      DataColumn60 = #{record.datacolumn60,jdbcType=VARCHAR},
+      CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      ChangeLastTime = #{record.changelasttime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.ProjectData" >
+    update project_data
+    <set >
+      <if test="projectname != null" >
+        ProjectName = #{projectname,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn1 != null" >
+        DataColumn1 = #{datacolumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn2 != null" >
+        DataColumn2 = #{datacolumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn3 != null" >
+        DataColumn3 = #{datacolumn3,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn4 != null" >
+        DataColumn4 = #{datacolumn4,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn5 != null" >
+        DataColumn5 = #{datacolumn5,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn6 != null" >
+        DataColumn6 = #{datacolumn6,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn7 != null" >
+        DataColumn7 = #{datacolumn7,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn8 != null" >
+        DataColumn8 = #{datacolumn8,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn9 != null" >
+        DataColumn9 = #{datacolumn9,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn10 != null" >
+        DataColumn10 = #{datacolumn10,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn11 != null" >
+        DataColumn11 = #{datacolumn11,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn12 != null" >
+        DataColumn12 = #{datacolumn12,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn13 != null" >
+        DataColumn13 = #{datacolumn13,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn14 != null" >
+        DataColumn14 = #{datacolumn14,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn15 != null" >
+        DataColumn15 = #{datacolumn15,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn16 != null" >
+        DataColumn16 = #{datacolumn16,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn17 != null" >
+        DataColumn17 = #{datacolumn17,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn18 != null" >
+        DataColumn18 = #{datacolumn18,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn19 != null" >
+        DataColumn19 = #{datacolumn19,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn20 != null" >
+        DataColumn20 = #{datacolumn20,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn21 != null" >
+        DataColumn21 = #{datacolumn21,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn22 != null" >
+        DataColumn22 = #{datacolumn22,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn23 != null" >
+        DataColumn23 = #{datacolumn23,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn24 != null" >
+        DataColumn24 = #{datacolumn24,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn25 != null" >
+        DataColumn25 = #{datacolumn25,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn26 != null" >
+        DataColumn26 = #{datacolumn26,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn27 != null" >
+        DataColumn27 = #{datacolumn27,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn28 != null" >
+        DataColumn28 = #{datacolumn28,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn29 != null" >
+        DataColumn29 = #{datacolumn29,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn30 != null" >
+        DataColumn30 = #{datacolumn30,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn31 != null" >
+        DataColumn31 = #{datacolumn31,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn32 != null" >
+        DataColumn32 = #{datacolumn32,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn33 != null" >
+        DataColumn33 = #{datacolumn33,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn34 != null" >
+        DataColumn34 = #{datacolumn34,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn35 != null" >
+        DataColumn35 = #{datacolumn35,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn36 != null" >
+        DataColumn36 = #{datacolumn36,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn37 != null" >
+        DataColumn37 = #{datacolumn37,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn38 != null" >
+        DataColumn38 = #{datacolumn38,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn39 != null" >
+        DataColumn39 = #{datacolumn39,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn40 != null" >
+        DataColumn40 = #{datacolumn40,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn41 != null" >
+        DataColumn41 = #{datacolumn41,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn42 != null" >
+        DataColumn42 = #{datacolumn42,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn43 != null" >
+        DataColumn43 = #{datacolumn43,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn44 != null" >
+        DataColumn44 = #{datacolumn44,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn45 != null" >
+        DataColumn45 = #{datacolumn45,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn46 != null" >
+        DataColumn46 = #{datacolumn46,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn47 != null" >
+        DataColumn47 = #{datacolumn47,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn48 != null" >
+        DataColumn48 = #{datacolumn48,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn49 != null" >
+        DataColumn49 = #{datacolumn49,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn50 != null" >
+        DataColumn50 = #{datacolumn50,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn51 != null" >
+        DataColumn51 = #{datacolumn51,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn52 != null" >
+        DataColumn52 = #{datacolumn52,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn53 != null" >
+        DataColumn53 = #{datacolumn53,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn54 != null" >
+        DataColumn54 = #{datacolumn54,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn55 != null" >
+        DataColumn55 = #{datacolumn55,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn56 != null" >
+        DataColumn56 = #{datacolumn56,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn57 != null" >
+        DataColumn57 = #{datacolumn57,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn58 != null" >
+        DataColumn58 = #{datacolumn58,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn59 != null" >
+        DataColumn59 = #{datacolumn59,jdbcType=VARCHAR},
+      </if>
+      <if test="datacolumn60 != null" >
+        DataColumn60 = #{datacolumn60,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changelasttime != null" >
+        ChangeLastTime = #{changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ProjectDataId = #{projectdataid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.ProjectData" >
+    update project_data
+    set ProjectName = #{projectname,jdbcType=VARCHAR},
+      DataColumn1 = #{datacolumn1,jdbcType=VARCHAR},
+      DataColumn2 = #{datacolumn2,jdbcType=VARCHAR},
+      DataColumn3 = #{datacolumn3,jdbcType=VARCHAR},
+      DataColumn4 = #{datacolumn4,jdbcType=VARCHAR},
+      DataColumn5 = #{datacolumn5,jdbcType=VARCHAR},
+      DataColumn6 = #{datacolumn6,jdbcType=VARCHAR},
+      DataColumn7 = #{datacolumn7,jdbcType=VARCHAR},
+      DataColumn8 = #{datacolumn8,jdbcType=VARCHAR},
+      DataColumn9 = #{datacolumn9,jdbcType=VARCHAR},
+      DataColumn10 = #{datacolumn10,jdbcType=VARCHAR},
+      DataColumn11 = #{datacolumn11,jdbcType=VARCHAR},
+      DataColumn12 = #{datacolumn12,jdbcType=VARCHAR},
+      DataColumn13 = #{datacolumn13,jdbcType=VARCHAR},
+      DataColumn14 = #{datacolumn14,jdbcType=VARCHAR},
+      DataColumn15 = #{datacolumn15,jdbcType=VARCHAR},
+      DataColumn16 = #{datacolumn16,jdbcType=VARCHAR},
+      DataColumn17 = #{datacolumn17,jdbcType=VARCHAR},
+      DataColumn18 = #{datacolumn18,jdbcType=VARCHAR},
+      DataColumn19 = #{datacolumn19,jdbcType=VARCHAR},
+      DataColumn20 = #{datacolumn20,jdbcType=VARCHAR},
+      DataColumn21 = #{datacolumn21,jdbcType=VARCHAR},
+      DataColumn22 = #{datacolumn22,jdbcType=VARCHAR},
+      DataColumn23 = #{datacolumn23,jdbcType=VARCHAR},
+      DataColumn24 = #{datacolumn24,jdbcType=VARCHAR},
+      DataColumn25 = #{datacolumn25,jdbcType=VARCHAR},
+      DataColumn26 = #{datacolumn26,jdbcType=VARCHAR},
+      DataColumn27 = #{datacolumn27,jdbcType=VARCHAR},
+      DataColumn28 = #{datacolumn28,jdbcType=VARCHAR},
+      DataColumn29 = #{datacolumn29,jdbcType=VARCHAR},
+      DataColumn30 = #{datacolumn30,jdbcType=VARCHAR},
+      DataColumn31 = #{datacolumn31,jdbcType=VARCHAR},
+      DataColumn32 = #{datacolumn32,jdbcType=VARCHAR},
+      DataColumn33 = #{datacolumn33,jdbcType=VARCHAR},
+      DataColumn34 = #{datacolumn34,jdbcType=VARCHAR},
+      DataColumn35 = #{datacolumn35,jdbcType=VARCHAR},
+      DataColumn36 = #{datacolumn36,jdbcType=VARCHAR},
+      DataColumn37 = #{datacolumn37,jdbcType=VARCHAR},
+      DataColumn38 = #{datacolumn38,jdbcType=VARCHAR},
+      DataColumn39 = #{datacolumn39,jdbcType=VARCHAR},
+      DataColumn40 = #{datacolumn40,jdbcType=VARCHAR},
+      DataColumn41 = #{datacolumn41,jdbcType=VARCHAR},
+      DataColumn42 = #{datacolumn42,jdbcType=VARCHAR},
+      DataColumn43 = #{datacolumn43,jdbcType=VARCHAR},
+      DataColumn44 = #{datacolumn44,jdbcType=VARCHAR},
+      DataColumn45 = #{datacolumn45,jdbcType=VARCHAR},
+      DataColumn46 = #{datacolumn46,jdbcType=VARCHAR},
+      DataColumn47 = #{datacolumn47,jdbcType=VARCHAR},
+      DataColumn48 = #{datacolumn48,jdbcType=VARCHAR},
+      DataColumn49 = #{datacolumn49,jdbcType=VARCHAR},
+      DataColumn50 = #{datacolumn50,jdbcType=VARCHAR},
+      DataColumn51 = #{datacolumn51,jdbcType=VARCHAR},
+      DataColumn52 = #{datacolumn52,jdbcType=VARCHAR},
+      DataColumn53 = #{datacolumn53,jdbcType=VARCHAR},
+      DataColumn54 = #{datacolumn54,jdbcType=VARCHAR},
+      DataColumn55 = #{datacolumn55,jdbcType=VARCHAR},
+      DataColumn56 = #{datacolumn56,jdbcType=VARCHAR},
+      DataColumn57 = #{datacolumn57,jdbcType=VARCHAR},
+      DataColumn58 = #{datacolumn58,jdbcType=VARCHAR},
+      DataColumn59 = #{datacolumn59,jdbcType=VARCHAR},
+      DataColumn60 = #{datacolumn60,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      ChangeLastTime = #{changelasttime,jdbcType=TIMESTAMP}
+    where ProjectDataId = #{projectdataid,jdbcType=INTEGER}
+  </update>
+</mapper>

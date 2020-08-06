@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UsersInfoMapper" >
+    <resultMap id="BaseResultMap" type="com.example.demo.security.entity.UserEntity" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="userrealname" property="userrealname" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="ipaddress" property="ipaddress" jdbcType="VARCHAR" />
+        <result column="emailaddress" property="emailaddress" jdbcType="VARCHAR" />
+        <result column="level" property="level" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="getAllUnderLevel" resultMap="BaseResultMap"  parameterType="java.lang.Integer">
+        SELECT
+        id,username,userrealname,password,ipaddress,emailaddress,level
+        FROM usersinfo where #{level}>=level
+    </select>
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        id,username,userrealname,password,ipaddress,emailaddress,level
+        FROM usersinfo
+    </select>
+    <select id="getUpUserByUsername" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        SELECT * from mydb.usersinfo where level>(SELECT level FROM mydb.usersinfo where username=#{username})
+    </select>
+
+    <select id="getUserByUsername" resultType="com.example.demo.security.entity.UserEntity"  parameterType="java.lang.String" >
+        SELECT
+        id,username,userrealname,password,ipaddress,emailaddress,level
+        FROM usersinfo WHERE username =#{username}
+    </select>
+    <insert id="insertUser" parameterType="com.example.demo.security.entity.UserEntity" >
+        INSERT INTO
+        usersinfo
+            (
+                username,
+                userrealname,
+                password,
+                ipaddress,
+                emailaddress,
+                level
+            )
+        VALUES
+            (
+                #{username},
+                #{userrealname},
+                #{password},
+                #{ipaddress},
+                #{emailaddress},
+                #{level}
+            )
+    </insert>
+
+
+    <update id="updataUserById" parameterType="com.example.demo.security.entity.UserEntity" >
+        UPDATE
+        usersinfo
+        SET
+        <if test="username!=null"> username=#{username},</if>
+        <if test="userrealname!=null"> userrealname=#{userrealname},</if>
+        <if test="password!=null"> password=#{password},</if>
+        <if test="ipaddress!=null"> ipaddress=#{ipaddress},</if>
+        <if test="emailaddress!=null"> emailaddress=#{emailaddress},</if>
+        <if test="level!=null"> level=#{level}</if>
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+        DELETE FROM
+        usersinfo
+        WHERE
+        id =#{id}
+    </delete>
+
+    <select id="selectVerificationByUserId" parameterType="java.lang.Integer" resultType="com.example.demo.security.entity.VerificationEntity">
+        select * FROM
+        verificationcode
+        WHERE
+        userid =#{id}
+    </select>
+    <insert id="insertVerification" parameterType="com.example.demo.security.entity.VerificationEntity" >
+        INSERT INTO
+        verificationcode
+        (
+            userid,
+            code,
+            createtime
+        )
+        VALUES
+        (
+            #{userid},
+            #{code},
+            now()
+        )
+    </insert>
+
+    <update id="updateVerification" parameterType="com.example.demo.security.entity.VerificationEntity" >
+        UPDATE
+            verificationcode
+        SET
+            <if test="code!=null"> code=#{code},</if>
+            createtime=now()
+        WHERE
+            userid =  #{userid}
+    </update>
+</mapper>

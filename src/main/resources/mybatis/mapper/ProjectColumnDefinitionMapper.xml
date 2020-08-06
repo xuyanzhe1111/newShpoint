@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.ProjectColumnDefinitionMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.ProjectColumnDefinition" >
+    <id column="ProjectColumnDefinitionId" property="projectcolumndefinitionid" jdbcType="INTEGER" />
+    <result column="ColumnName" property="columnname" jdbcType="VARCHAR" />
+    <result column="ColumnDataType" property="columndatatype" jdbcType="INTEGER" />
+    <result column="QueryConditionOrder" property="queryconditionorder" jdbcType="INTEGER" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="ChangeLastTime" property="changelasttime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ProjectColumnDefinitionId, ColumnName, ColumnDataType, QueryConditionOrder, CreateTime, 
+    ChangeLastTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.ProjectColumnDefinitionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from project_column_definition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from project_column_definition
+    where ProjectColumnDefinitionId = #{projectcolumndefinitionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from project_column_definition
+    where ProjectColumnDefinitionId = #{projectcolumndefinitionid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.ProjectColumnDefinitionExample" >
+    delete from project_column_definition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.ProjectColumnDefinition" >
+    insert into project_column_definition (ProjectColumnDefinitionId, ColumnName, 
+      ColumnDataType, QueryConditionOrder, CreateTime, 
+      ChangeLastTime)
+    values (#{projectcolumndefinitionid,jdbcType=INTEGER}, #{columnname,jdbcType=VARCHAR}, 
+      #{columndatatype,jdbcType=INTEGER}, #{queryconditionorder,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{changelasttime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.ProjectColumnDefinition" >
+    insert into project_column_definition
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectcolumndefinitionid != null" >
+        ProjectColumnDefinitionId,
+      </if>
+      <if test="columnname != null" >
+        ColumnName,
+      </if>
+      <if test="columndatatype != null" >
+        ColumnDataType,
+      </if>
+      <if test="queryconditionorder != null" >
+        QueryConditionOrder,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+      <if test="changelasttime != null" >
+        ChangeLastTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectcolumndefinitionid != null" >
+        #{projectcolumndefinitionid,jdbcType=INTEGER},
+      </if>
+      <if test="columnname != null" >
+        #{columnname,jdbcType=VARCHAR},
+      </if>
+      <if test="columndatatype != null" >
+        #{columndatatype,jdbcType=INTEGER},
+      </if>
+      <if test="queryconditionorder != null" >
+        #{queryconditionorder,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changelasttime != null" >
+        #{changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.ProjectColumnDefinitionExample" resultType="java.lang.Integer" >
+    select count(*) from project_column_definition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update project_column_definition
+    <set >
+      <if test="record.projectcolumndefinitionid != null" >
+        ProjectColumnDefinitionId = #{record.projectcolumndefinitionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.columnname != null" >
+        ColumnName = #{record.columnname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.columndatatype != null" >
+        ColumnDataType = #{record.columndatatype,jdbcType=INTEGER},
+      </if>
+      <if test="record.queryconditionorder != null" >
+        QueryConditionOrder = #{record.queryconditionorder,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.changelasttime != null" >
+        ChangeLastTime = #{record.changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update project_column_definition
+    set ProjectColumnDefinitionId = #{record.projectcolumndefinitionid,jdbcType=INTEGER},
+      ColumnName = #{record.columnname,jdbcType=VARCHAR},
+      ColumnDataType = #{record.columndatatype,jdbcType=INTEGER},
+      QueryConditionOrder = #{record.queryconditionorder,jdbcType=INTEGER},
+      CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      ChangeLastTime = #{record.changelasttime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.ProjectColumnDefinition" >
+    update project_column_definition
+    <set >
+      <if test="columnname != null" >
+        ColumnName = #{columnname,jdbcType=VARCHAR},
+      </if>
+      <if test="columndatatype != null" >
+        ColumnDataType = #{columndatatype,jdbcType=INTEGER},
+      </if>
+      <if test="queryconditionorder != null" >
+        QueryConditionOrder = #{queryconditionorder,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changelasttime != null" >
+        ChangeLastTime = #{changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ProjectColumnDefinitionId = #{projectcolumndefinitionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.ProjectColumnDefinition" >
+    update project_column_definition
+    set ColumnName = #{columnname,jdbcType=VARCHAR},
+      ColumnDataType = #{columndatatype,jdbcType=INTEGER},
+      QueryConditionOrder = #{queryconditionorder,jdbcType=INTEGER},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      ChangeLastTime = #{changelasttime,jdbcType=TIMESTAMP}
+    where ProjectColumnDefinitionId = #{projectcolumndefinitionid,jdbcType=INTEGER}
+  </update>
+</mapper>

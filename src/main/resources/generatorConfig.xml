@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <context id="context1">
+        <!-- 是否生成注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 生成的包名和工程名 -->
+        <javaModelGenerator targetPackage="com.example.demo.entity"
+                            targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="mybatis.mapper"
+                         targetProject="src/main/java" />
+        <javaClientGenerator targetPackage="com.example.demo.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER" />
+
+        <!-- 数据库表 -->
+        <table tableName="project_data" domainObjectName="ProjectData"></table>
+
+        <typeHandlers>
+            <typeHandler handler="org.apache.ibatis.type.InstantTypeHandler" />
+            <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />
+            <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />
+            <typeHandler handler="org.apache.ibatis.type.LocalTimeTypeHandler" />
+            <typeHandler handler="org.apache.ibatis.type.OffsetDateTimeTypeHandler" />
+            <typeHandler handler="org.apache.ibatis.type.OffsetTimeTypeHandler" />
+            <typeHandler handler="org.apache.ibatis.type.ZonedDateTimeTypeHandler" />
+        </typeHandlers>
+    </context>
+</generatorConfiguration>

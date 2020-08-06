@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{js/vue.js}"></script>
+    <!--     引入样式 -->
+    <link rel="stylesheet" th:href="@{css/element.css}">
+    <!-- 引入组件库 -->
+    <script type="text/javascript" th:src="@{js/element.js}"></script>
+    <script th:src="@{js/axios.js}"></script>
+    <style>
+        .el-row {
+            margin-bottom: 20px;
+        }
+        .el-col {
+            border-radius: 4px;
+        }
+        .bg-purple-dark {
+            background: #99a9bf;
+        }
+        .bg-purple {
+            background: #d3dce6;
+        }
+        .bg-purple-light {
+            background: #e5e9f2;
+        }
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+        #loginBox {
+            min-width: 1900px;
+        }
+    </style>
+</head>
+<body style="background-color: #f0f9eb">
+    <div  id="loginBox" style="width: 100%">
+        <el-row :gutter="1">
+            <el-col :span="6" :offset="9" >
+                <el-card style="margin-top: 20%">
+                    <h2 style="text-align: center;color:#538CC7">请登录</h2>
+                    <el-form ref="form" :model="form"  label-width="120px">
+                        <el-form-item label="用户名"  >
+                            <el-input v-model.lazy="form.username" name="username"></el-input>
+                            <input type="hidden" v-model="getUpUser"/>
+                        </el-form-item>
+                        <el-form-item label="密码" >
+                            <el-input v-model="form.password" name="password"></el-input>
+                        </el-form-item>
+                        <el-form-item label="是否需要验证" >
+                            <el-switch v-model="form.is"></el-switch>
+                        </el-form-item>
+                        <template v-if="form.is">
+                            <el-form-item >
+                                <el-select v-model="upUser">
+                                    <el-option
+                                            v-for="item in upUserNameList"
+                                            :key="item"
+                                            :label="item"
+                                            :value="item">
+                                    </el-option>
+                                </el-select>
+                                <el-button type="primary" @click="sendVerification">获取</el-button>
+                            </el-form-item>
+                            <el-form-item label="验证码" name="verification" >
+                                <el-input v-model="form.verification" ></el-input>
+                            </el-form-item>
+                        </template>
+                        <el-form-item>
+                            <el-button type="primary" @click="login">登录</el-button>
+                        </el-form-item>
+                    </el-form>
+                </el-card>
+            </el-col>
+        </el-row>
+    </div>
+<script>
+    var v=new Vue({
+        el:"#loginBox",
+        data:{
+            form:{
+                username:"",
+                password:"",
+                verification:"",
+                is:false,
+            },
+            upUser:"",
+            upUserNameList:[],
+        },
+        computed:{
+            getUpUser(){
+                this.upUser="";
+                var data =new FormData();
+                data.append("username",this.form.username)
+                axios.post("/login/getUpUser", data).then(e=>{
+                    this.reSetList(this.upUserNameList,e.data)
+                })
+            }
+        },
+        methods:{
+            reSetList(oldL, newL) {
+                for (; oldL.length > 0;) {
+                    oldL.pop();
+                }
+                for (i in newL) {
+                    oldL.push(newL[i]);
+                }
+            },
+            sendVerification(){
+                var data =new FormData();
+                data.append("upusername",this.upUser)
+                data.append("username",this.form.username)
+                axios.post("/login/sendVerification", data).then(e=>{
+                    this.$message("发送成功")
+                })
+                .catch(e=>{
+                    this.$message.error(e.response.data.message);
+                })
+            },
+            login(){
+                var data=new FormData();
+                data.append("username",this.form.username);
+                data.append("password",this.form.password);
+                data.append("verificationCode",this.form.verification);
+                axios.post("/login",data).then(
+                    e=>{
+                        if(e.data.url)
+                            window.location.href=e.data.url
+                        else
+                            window.location.href=window.location.origin
+                    }
+                ).catch(
+                    e=>{
+                        this.$message.error(e.response.data.message.split(':')[0]);
+                        if(parseInt(e.response.data.message.split(':')[1])>2)
+                            this.form.is=true;
+                    }
+                )
+            }
+        }
+    })
+</script>
+</body>
+</html>

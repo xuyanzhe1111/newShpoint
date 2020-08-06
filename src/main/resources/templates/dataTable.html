@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="main(pdfname)">
+    <template v-if="false" id="dataTable">
+        <el-row>
+            <el-col :span="3" >
+                <tablelist ref="tablelist" @get-data="getTable" :tables="tableData"></tablelist>
+                <div style="height: 100%;width:150px"><br></div>
+            </el-col>
+            <el-col :span="18" >
+                <tablec  v-if="tableInfo.id" :info="tableInfo" style="z-index: 5" ></tablec>
+            </el-col>
+            <el-col :span="3">
+                <editbuttons v-if="tableInfo.id" :data="tableInfo" ref="edit" @getTable="getTable"></editbuttons>
+            </el-col>
+        </el-row>
+    </template>
+    <datatable></datatable>
+</div>
+</body>
+</html>

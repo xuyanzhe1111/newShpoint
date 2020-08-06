@@ -16,11 +16,6 @@ import java.util.Map;
 @Controller
 public class testController {
 
-    @GetMapping("/")
-    public String Void(){
-        return "home";
-    }
-
     @GetMapping("/t")
     @ResponseBody
     public Object Data(HttpServletResponse response) throws IOException {

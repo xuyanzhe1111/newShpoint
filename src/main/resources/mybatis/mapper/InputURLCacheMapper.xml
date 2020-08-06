@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.InputURLCacheMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.InputURLCache" >
+    <id column="InputCacheId" property="inputcacheid" jdbcType="INTEGER" />
+    <result column="BatchId" property="batchid" jdbcType="VARCHAR" />
+    <result column="InputName" property="inputname" jdbcType="VARCHAR" />
+    <result column="InputURL" property="inputvalue" jdbcType="VARCHAR" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="ChangeLastTime" property="changelasttime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    InputCacheId, BatchId, InputName, InputURL, CreateTime,ChangeLastTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.InputCacheExample" >
+    select
+    <if test="distinct" >
+        distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from input_cache_image
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from input_cache_image
+    where InputCacheId = #{inputcacheid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from input_cache_image
+    where InputCacheId = #{inputcacheid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.InputCacheExample" >
+    delete from input_cache_image
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.InputURLCache" >
+    insert into input_cache_image (InputCacheId, BatchId, InputName, 
+      InputURL, CreateTime, ChangeLastTime
+      )
+    values (#{inputcacheid,jdbcType=INTEGER}, #{batchid,jdbcType=VARCHAR}, #{inputname,jdbcType=VARCHAR}, 
+      #{inputvalue,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{changelasttime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.InputURLCache" >
+    insert into input_cache_image
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="inputcacheid != null" >
+        InputCacheId,
+      </if>
+      <if test="batchid != null" >
+        BatchId,
+      </if>
+      <if test="inputname != null" >
+        InputName,
+      </if>
+      <if test="inputvalue != null" >
+        InputURL,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+      <if test="changelasttime != null" >
+        ChangeLastTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="inputcacheid != null" >
+        #{inputcacheid,jdbcType=INTEGER},
+      </if>
+      <if test="batchid != null" >
+        #{batchid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputname != null" >
+        #{inputname,jdbcType=VARCHAR},
+      </if>
+      <if test="inputvalue != null" >
+        #{inputvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changelasttime != null" >
+        #{changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.InputCacheExample" resultType="java.lang.Integer" >
+    select count(*) from input_cache_image
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update input_cache_image
+    <set >
+      <if test="record.inputcacheid != null" >
+        InputCacheId = #{record.inputcacheid,jdbcType=INTEGER},
+      </if>
+      <if test="record.batchid != null" >
+        BatchId = #{record.batchid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputname != null" >
+        InputName = #{record.inputname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputvalue != null" >
+        InputURL = #{record.inputvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.changelasttime != null" >
+        ChangeLastTime = #{record.changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update input_cache_image
+    set InputCacheId = #{record.inputcacheid,jdbcType=INTEGER},
+      BatchId = #{record.batchid,jdbcType=VARCHAR},
+      InputName = #{record.inputname,jdbcType=VARCHAR},
+    InputURL = #{record.inputvalue,jdbcType=VARCHAR},
+      CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+    ChangeLastTime = #{record.changelasttime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.InputURLCache" >
+    update input_cache_image
+    <set >
+      <if test="batchid != null" >
+        BatchId = #{batchid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputname != null" >
+        InputName = #{inputname,jdbcType=VARCHAR},
+      </if>
+      <if test="inputvalue != null" >
+        InputURL = #{inputvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changelasttime != null" >
+        ChangeLastTime = #{changelasttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where InputCacheId = #{inputcacheid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.InputURLCache" >
+    update input_cache_image
+    set BatchId = #{batchid,jdbcType=VARCHAR},
+      InputName = #{inputname,jdbcType=VARCHAR},
+      InputURL = #{inputvalue,jdbcType=BLOB},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      ChangeLastTime = #{changelasttime,jdbcType=TIMESTAMP},
+    where InputCacheId = #{inputcacheid,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllBatchId" resultType="java.lang.String" >
+    select distinct BatchId from input_cache_image order by ChangeLastTime desc
+  </select>
+</mapper>

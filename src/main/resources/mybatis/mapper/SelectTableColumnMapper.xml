@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.SelectTableMapper" >
+    <resultMap id="ResultMap" type="com.example.demo.entity.select.DataTableEntity" >
+        <result column="tableid" property="id" jdbcType="INTEGER" />
+        <result column="id" property="columnid" jdbcType="INTEGER" />
+        <result column="columnsjson" property="columnsJSON" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Column_List" >
+        id,tableid, columnjson
+    </sql>
+
+    <select id="getAllColumnJson" resultMap="ResultMap" parameterType="java.lang.Integer">
+        SELECT *
+        FROM selecttablecolumn WHERE tableid=#{tableid,jdbcType=INTEGER}
+    </select>
+
+    <insert id="inesrtColumnJson" parameterType="com.example.demo.entity.select.DataTableEntity" >
+        INSERT INTO
+        selecttablecolumn
+        (tableid,columnsjson)
+        VALUES
+        (#{id}, #{columnsJSON})
+    </insert>
+
+    <update id="updateColumnJson"  parameterType="com.example.demo.entity.select.DataTableEntity">
+        update selecttablecolumn
+        <set >
+            <if test="columnsJSON != null" >
+                columnsjson= #{columnsJSON,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE tableid=#{id}
+    </update>
+
+    <delete id="deleteColumnByTableId"  parameterType="java.lang.Integer">
+        DELETE FROM
+        selecttablecolumn
+        WHERE
+        tableid =#{id}
+    </delete>
+
+</mapper>

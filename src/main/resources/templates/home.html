@@ -7,15 +7,18 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" th:href="@{css/element.css}">
     <!-- 引入组件库 -->
-    <script type="text/javascript" th:src="@{js/head/home.js}"></script>
     <script type="text/javascript" th:src="@{js/element.js}"></script>
     <script th:src="@{js/axios.js}"></script>
 
     <script>
-        var vm = new Vue({
-            data:data
-        })
+        window.data={};
+        window.computer={};
+        window.methods={};
     </script>
+
+    <script type="text/javascript" th:src="@{js/head/home.js}"></script>
+    <script th:src="@{'js/'+${component}+'.js'}"></script>
+
     <style>
         body, h1 {
             margin: 0;
@@ -237,12 +240,22 @@
                 </el-row>
             </el-aside>
             <el-main>
+                <div th:if="${component}" th:include="${component}::app ">
+
+                </div>
             </el-main>
         </el-container>
     </el-container>
 </div>
+<script></script>
 <script>
-    vm.$mount('#app')
+    var vm = new Vue({
+        el:'#app',
+        data:data,
+        computed:computer,
+        methods:methods,
+        mounted:mounted,
+    })
 </script>
 </body>
 </html>

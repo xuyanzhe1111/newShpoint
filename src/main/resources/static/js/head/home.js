@@ -1,8 +1,9 @@
-if(!window.data)
+if(!window.data){
     window.data={
         aside:{},
         header:{}
     };
+}
 
 window.data["aside"] = [
         {
