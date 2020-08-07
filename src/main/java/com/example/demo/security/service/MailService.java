@@ -69,7 +69,7 @@ public class MailService implements MailMapper {
         context.setVariable("fromname", from);
         context.setVariable("toname", to);
         context.setVariable("code", verification);
-        String process = templateEngine.process("login/mail", context);
+        String process = templateEngine.process("mail", context);
         sendHtmlMail(mailaddress,to+"请求验证码",process);
     }
     /**

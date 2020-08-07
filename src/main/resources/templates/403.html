@@ -5,16 +5,50 @@
         <title>Title</title>
     </head>
     <body>
-        <div th:fragment="app" >
-                <el-container>
-                    <el-main>
-                        <el-row>
-                            没有权限<span v-text="timecount"></span>秒后自动跳转到首页
-                            <input type="hidden" v-model="u"/>
-                        </el-row>
-                    </el-main>
-                </el-container>
-            </el-container>
+        <div th:fragment="model" >
+            <template id="error403">
+                <div>
+                    <el-container>
+                        <el-main>
+                            <el-row>
+                                没有权限<span v-text="timecount"></span>秒后自动跳转到首页
+                                <input type="hidden" v-model="u"/>
+                            </el-row>
+                        </el-main>
+                    </el-container>
+                    </el-container>
+                </div>
+            </template>
+            <script>
+                var error403=Vue.component(
+                    "mainbox",
+                    {
+                        template:"#error403",
+                        data(){
+                            return {
+                                timecount:10,
+                            }
+                        },
+                        computed:{
+                            u(){
+                                if(this.timecount==0){
+                                    this.jumpurl();
+                                }
+                            }
+                        },
+                        methods:{
+                            jumpurl(){
+                                location='/';
+                            },
+                        },
+                        mounted() {
+                            var obj=this;
+                            setInterval(function(){obj.timecount--;}, 1000)
+                        }
+
+                    }
+                )
+            </script>
         </div>
     </body>
 </html>

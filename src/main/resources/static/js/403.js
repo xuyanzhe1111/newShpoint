@@ -1,17 +1,7 @@
-function jumpurl(){
-    location='/';
-}
+
 function f(){
             vm.timecount--;
         }
-if(!window.data){
-    window.data={
-        timecount:10,
-    }
-}else{
-    window.data['timecount']=10
-}
-
 if(!window.computed){
     window["computer"]={
         u(){
@@ -28,6 +18,5 @@ if(!window.computed){
     }
 }
 function mounted() {
-    setInterval('f()', 1000);
-    this.getCurrentUserName();
+    setInterval('f()', 1000)
 }

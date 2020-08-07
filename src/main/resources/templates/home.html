@@ -11,13 +11,7 @@
     <script th:src="@{js/axios.js}"></script>
 
     <script>
-        window.data={};
-        window.computer={};
-        window.methods={};
     </script>
-
-    <script type="text/javascript" th:src="@{js/head/home.js}"></script>
-    <script th:src="@{'js/'+${component}+'.js'}"></script>
 
     <style>
         body, h1 {
@@ -149,7 +143,7 @@
         }
 
     </style>
-    <style type="text/css">
+    <style >
         .el-table–border th.gutter:last-of-type {
             display: block !important;
             width: 17px !important;
@@ -220,12 +214,18 @@
 </head>
 
 <body>
+<Div>
+    <div th:include="model::homemodel"></div>
+    <div th:if="!${#strings.isEmpty(component)}" >
+        <div th:include="${component}::model">
+        </div>
+    </div>
+</Div>
 <div id="app">
     <el-container>
         <el-header id="headerBox" style="width:100%;position: fixed;z-index: 10">
-            <!--头元素-->
             <el-row :gutter="20">
-                <slot th:insert="model::header"></slot>
+                <headerbox></headerbox>
             </el-row>
         </el-header>
         <el-container>
@@ -233,28 +233,20 @@
                 <el-row class="tac">
                     <el-col>
                         <div class="side fixed" id="asideBox">
-                            <!--左侧导航栏-->
-                            <div th:include="model::aside"></div>
+                            <asiderbox></asiderbox>
                         </div>
                     </el-col>
                 </el-row>
             </el-aside>
             <el-main>
-                <div th:if="${component}" th:include="${component}::app ">
-
-                </div>
+                <mainbox></mainbox>
             </el-main>
         </el-container>
     </el-container>
 </div>
-<script></script>
 <script>
     var vm = new Vue({
-        el:'#app',
-        data:data,
-        computed:computer,
-        methods:methods,
-        mounted:mounted,
+        el:'#app'
     })
 </script>
 </body>
